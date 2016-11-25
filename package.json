@@ -1,0 +1,34 @@
+{
+  "name": "tictactoe",
+  "private": true,
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0",
+      "react"
+    ]
+  },
+  "dependencies": {
+    "babel-polyfill": "*",
+    "react": "*",
+    "react-dom": "*"
+  },
+  "devDependencies": {
+    "babel-eslint": "*",
+    "babelify": "*",
+    "browserify": "*",
+    "eslint": "*",
+    "eslint-plugin-babel": "*",
+    "eslint-plugin-react": "*",
+    "exorcist": "*",
+    "uglify": "*",
+    "watchify": "*",
+    "babel-preset-es2015": "*",
+    "babel-preset-react": "*",
+    "babel-preset-stage-0": "*"
+  },
+  "scripts": {
+    "watch": "watchify ./js/app.js -t [ babelify ] -o ./build/app.js --debug --verbose",
+    "build": "NODE_ENV=production browserify ./js/app.js -t [ babelify ] --debug | exorcist ./build/app.js.map | uglifyjs -c > build/app.js"
+  }
+}
